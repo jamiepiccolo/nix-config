@@ -93,5 +93,7 @@
     vscodium
     neovim
     git
+    slurp
+    grim
   ];
 }
