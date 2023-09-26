@@ -122,7 +122,7 @@
       bind = [
         "$mainMod, S, exec, grim -g \"$(slurp)\" - | wl-copy"
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-        "$mainMod, RETURN, exec, kitty"
+        "$mainMod, RETURN, exec, foot"
         "$mainMod SHIFT, Q, killactive,"
         "$mainMod, F, fullscreen"
         "$mainMod, M, exit, "
