@@ -16,7 +16,7 @@
       };
       extraPkgs = pkgs: with pkgs; [
         gamescope
-        mangohud
+        mangohud_git
       ];
     };
   };
@@ -43,6 +43,7 @@
   ];
 
   programs.gamescope.enable = true;
+  # programs.gamescope.package = pkgs.gamescope_git;
 
   xdg = {
     portal = {
