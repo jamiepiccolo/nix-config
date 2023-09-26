@@ -91,5 +91,7 @@
     mangohud_git
     waybar
     vscodium
+    neovim
+    git
   ];
 }
