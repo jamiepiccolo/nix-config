@@ -56,9 +56,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
-  environment.systemPackages = [
-    pkgs.mangohud_git
-  ];
   users.users = {
     agent69 = {
       isNormalUser = true;

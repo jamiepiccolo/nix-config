@@ -14,7 +14,7 @@
         MANGOHUD = true;
         OBS_VKCAPTURE = true;
       };
-      extraLibraries = p: with p; [
+      extraPkgs = pkgs: with pkgs; [
         gamescope
         mangohud
       ];

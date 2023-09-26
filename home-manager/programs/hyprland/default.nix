@@ -20,7 +20,8 @@
         "waybar"
         "/usr/lib/polkit-kde-authentication-agent-1"
         "easyeffects --gapplication-service"
-        "[workspace 3 silent] sleep 1 && keepassxc & telegram-desktop"
+        "sleep 1 && keepassxc"
+        "[workspace 3 silent] sleep 1 && telegram-desktop"
       ];
       env = [
         "XCURSOR_SIZE,24"
