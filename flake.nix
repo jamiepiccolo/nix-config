@@ -35,6 +35,7 @@
         agent69420 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           # > Our main nixos configuration file <
+          system = "x86_64-linux";
           modules = [
             ./nixos/configuration.nix
             chaotic.nixosModules.default

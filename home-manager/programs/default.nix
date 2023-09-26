@@ -5,5 +5,6 @@
     ./mangohud
     ./waybar
     ./vscode
+    ./foot
   ];
 }
