@@ -85,5 +85,11 @@
     rustup
     rnix-lsp
     home-manager
+    foot
+    kitty
+    hyprland
+    mangohud_git
+    waybar
+    vscodium
   ];
 }
