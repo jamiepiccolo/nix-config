@@ -84,6 +84,7 @@
     })
     gst_all_1.gstreamer
     gst_all_1.gst-vaapi
+    git
     mpv
     rustup
     rnix-lsp
