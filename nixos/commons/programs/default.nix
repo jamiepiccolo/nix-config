@@ -46,6 +46,9 @@
   # programs.gamescope.package = pkgs.gamescope_git;
 
   xdg = {
+    mime = {
+      enable = true;
+    };
     portal = {
       enable = true;
       extraPortals = with pkgs; [
@@ -95,5 +98,6 @@
     git
     slurp
     grim
+    xdg-utils
   ];
 }

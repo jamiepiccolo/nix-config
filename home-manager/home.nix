@@ -35,13 +35,17 @@
     userEmail = "82730686+NotAgentBilly@users.noreply.github.com";
   };
 
-  xdg.desktopEntries = {
-    steam-gamescope = {
-      name = "steam-gamescope";
-      terminal = false;
-      exec = "gamescope -W 2560 -H 1440 -w 1920 -h 1080 -r 240 --adaptive-sync --immediate-flips -e -F fsr --fsr-sharpness 5 -- steam -tenfoot -steamos";
+  xdg =
+    {
+      enable = true;
+      desktopEntries = {
+        steam-gamescope = {
+          name = "steam-gamescope";
+          terminal = false;
+          exec = "gamescope -W 2560 -H 1440 -w 1920 -h 1080 -r 240 --adaptive-sync --immediate-flips -e -F fsr --fsr-sharpness 5 -- steam -tenfoot -steamos";
+        };
+      };
     };
-  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
