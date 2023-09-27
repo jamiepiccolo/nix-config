@@ -34,6 +34,12 @@
     userName = "NotAgentBilly";
     userEmail = "82730686+NotAgentBilly@users.noreply.github.com";
   };
+  programs.readline = {
+    enable = true;
+    extraConfig = ''
+      set completion-ignore-case on
+    '';
+  };
 
   xdg =
     {

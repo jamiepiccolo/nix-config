@@ -44,6 +44,11 @@
 
   programs.gamescope.enable = true;
   # programs.gamescope.package = pkgs.gamescope_git;
+  programs.starship.enable = true;
+  programs.bash.shellAliases = {
+    nightmodeon = "hyprctl keyword decoration:screen_shader \"$HOME/.config/hypr/shaders/blue-light-filter.glsl\"";
+    nightmodeoff = "hyprctl keyword decoration:screen_shader \"[[EMPTY]]\"";
+  };
 
   xdg = {
     mime = {
