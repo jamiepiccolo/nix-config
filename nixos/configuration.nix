@@ -42,8 +42,11 @@
       # This will additionally add your inputs to the system's legacy channels
       # Making legacy nix commands consistent as well, awesome!
       nixPath = lib.mapAttrsToList (x: _: "${x}=flake:${x}") flakes;
+      package = pkgs.nixFlakes;
 
       settings = {
+        substituters = [ "https://hyprland.cachix.org" ];
+        trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
         # Enable flakes and new 'nix' command
         experimental-features = "nix-command flakes";
         # Deduplicate and optimize nix store
@@ -61,7 +64,7 @@
       isNormalUser = true;
       description = "agent69";
       openssh.authorizedKeys.keys = [ ];
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel" "seat" ];
     };
   };
 
@@ -74,15 +77,24 @@
   };
 
   environment.sessionVariables = rec {
-    XDG_CACHE_HOME  = "$HOME/.cache";
+    XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_HOME   = "$HOME/.local/share";
-    XDG_STATE_HOME  = "$HOME/.local/state";
-    
-    XDG_BIN_HOME    = "$HOME/.local/bin";
-    PATH = [ 
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
+
+    XDG_BIN_HOME = "$HOME/.local/bin";
+    PATH = [
       "${XDG_BIN_HOME}"
     ];
+  };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  
+  boot.kernel.sysctl = {
+    "net.core.default_qdisc" = "fq_codel";
+    "net.ipv4.tcp_ecn" = 1;
+    "net.ipv4.tcp_sack" = 1;
+    "net.ipv4.tcp_dsack" = 1;
   };
 
   services.udisks2.enable = true;
