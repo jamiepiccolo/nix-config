@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./firefox
@@ -20,7 +20,7 @@
       ];
     };
   };
-
+ 
   programs.gamemode = {
     enable = true;
     settings = {
@@ -41,6 +41,7 @@
   chaotic.steam.extraCompatPackages = with pkgs; [
     proton-ge-custom
   ];
+  chaotic.mesa-git.enable = true;
 
   programs.gamescope.enable = true;
   # programs.gamescope.package = pkgs.gamescope_git;
@@ -49,7 +50,9 @@
     nightmodeon = "hyprctl keyword decoration:screen_shader \"$HOME/.config/hypr/shaders/blue-light-filter.glsl\"";
     nightmodeoff = "hyprctl keyword decoration:screen_shader \"[[EMPTY]]\"";
   };
-
+  # xdg-desktop-portal-hyprland = inputs.xdph.packages.${prev.system}.default.override {
+  # hyprland-share-picker = inputs.xdph.packages.${prev.system}.hyprland-share-picker.override { inherit hyprland; };
+  # };
   xdg = {
     mime = {
       enable = true;
@@ -96,14 +99,28 @@
     home-manager
     foot
     kitty
-    hyprland
+    # inputs.hyprland.packages.${pkgs.system}.hyprland
     mangohud_git
     waybar
     vscodium
+    vscode
     neovim
-    git
     slurp
     grim
     xdg-utils
-  ];
+    glxinfo
+    seatd
+    xorg.xrandr
+    audacity
+    readline
+    vscode-extensions.jnoortheen.nix-ide
+    vscode-extensions.usernamehw.errorlens
+    webcord
+    runelite
+    ];
+
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  # };
 }
