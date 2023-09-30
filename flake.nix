@@ -10,8 +10,10 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Shameless plug: looking for a way to nixify your themes and make
@@ -24,6 +26,7 @@
     , nixpkgs
     , chaotic
     , home-manager
+    , hyprland
     , ...
     } @ inputs:
     let
@@ -54,9 +57,11 @@
         "agent69@agent69420" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ 
-            ./home-manager/home.nix 
+          modules = [
+            ./home-manager/home.nix
             chaotic.homeManagerModules.default
+            hyprland.homeManagerModules.default
+            {wayland.windowManager.hyprland.enable = true;}
           ];
         };
       };
