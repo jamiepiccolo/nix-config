@@ -11,8 +11,8 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemdIntegration = true;
     extraConfig = ''
-      monitor = DP-3,1920x1080,-1920x0,1
-      monitor = HDMI-A-1,1920x1080@240,0x0,1
+      monitor = DP-3,1920x1080,-1920x0,1 #,bitdepth,10
+      monitor = HDMI-A-1,1920x1080@240,0x0,1 #,bitdepth,10
       exec-once = xrandr --output \"HDMI-A-1\" --primary
       exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -34,6 +34,9 @@
       env = MOZ_ENABLE_WAYLAND,1
       env = NIXOS_OZONE_WL,1
       env = RADV_PERFTEST,gpl
+
+      env = SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS,0
+      env = MESA_GL_VERSION_OVERRIDE,4.6
 
         input {
           kb_layout = us

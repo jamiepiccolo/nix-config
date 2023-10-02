@@ -50,18 +50,15 @@
     nightmodeon = "hyprctl keyword decoration:screen_shader \"$HOME/.config/hypr/shaders/blue-light-filter.glsl\"";
     nightmodeoff = "hyprctl keyword decoration:screen_shader \"[[EMPTY]]\"";
   };
-  # xdg-desktop-portal-hyprland = inputs.xdph.packages.${prev.system}.default.override {
-  # hyprland-share-picker = inputs.xdph.packages.${prev.system}.hyprland-share-picker.override { inherit hyprland; };
-  # };
   xdg = {
     mime = {
       enable = true;
     };
     portal = {
       enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-hyprland
-        libsForQt5.xdg-desktop-portal-kde
+      extraPortals = [
+ 	inputs.xdph.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+        pkgs.libsForQt5.xdg-desktop-portal-kde
       ];
     };
   };
@@ -86,12 +83,13 @@
     playerctl
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
-        obs-vaapi
+	obs-gstreamer
         obs-vkcapture
       ];
     })
     gst_all_1.gstreamer
     gst_all_1.gst-vaapi
+    gst_all_1.gst-plugins-base
     git
     mpv
     rustup

@@ -11,6 +11,7 @@
     hardware.url = "github:nixos/nixos-hardware";
 
     hyprland.url = "github:hyprwm/Hyprland";
+    xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/master";
