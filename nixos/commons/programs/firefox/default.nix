@@ -3,7 +3,7 @@
 {
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-devedition-bin;
+    package = pkgs.firefox-bin;
     preferences = {
       "nglayout.initialpaint.delay" = 0;
       "nglayout.initialpaint.delay_in_oopif" = 0;
