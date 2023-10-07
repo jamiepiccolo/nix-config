@@ -16,6 +16,7 @@
       "dom.security.sanitizer.enabled" = true;
 
       # GFX
+      #//"gfx.canvas.accelerated" = true; #// enable if using a dedicated GPU on WINDOWS
       "gfx.canvas.accelerated.cache-items" = 4096;
       "gfx.canvas.accelerated.cache-size" = 512;
       "gfx.content.skia-font-cache-size" = 20;
@@ -52,10 +53,14 @@
       "network.predictor.enabled" = false;
       "network.predictor.enable-prefetch" = false;
 
+      /****************************************************************************
+        * SECTION: SECUREFOX                                                       *
+        ****************************************************************************/
       # TRACKING PROTECTION
       "browser.contentblocking.category" = "strict";
-      "urlclassifier.trackingSkipURLs" = "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok =.com";
-      "urlclassifier.features.socialtracking.skipURLs" = "*.instagram.com, *.twitter.com, *.twimg =.com";
+      "urlclassifier.trackingSkipURLs" = "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com";
+      "urlclassifier.features.socialtracking.skipURLs" = "*.instagram.com, *.twitter.com, *.twimg.com";
+      "privacy.partition.bloburl_per_partition_key" = true;
       "browser.uitour.enabled" = false;
       "privacy.globalprivacycontrol.enabled" = true;
       "privacy.globalprivacycontrol.functionality.enabled" = true;
@@ -105,7 +110,6 @@
       "security.mixed_content.block_display_content" = true;
       "pdfjs.enableScripting" = false;
       "extensions.postDownloadThirdPartyPrompt" = false;
-      "permissions.delegation.enabled" = false;
 
       # HEADERS / REFERERS
       "network.http.referer.XOriginTrimmingPolicy" = 2;
@@ -121,7 +125,6 @@
       "browser.safebrowsing.downloads.remote.enabled" = false;
 
       # MOZILLA
-      "accessibility.force_disabled" = 1;
       "identity.fxaccounts.enabled" = false;
       "browser.tabs.firefox-view" = false;
       "permissions.default.desktop-notification" = 2;
@@ -133,7 +136,7 @@
       # TELEMETRY
       "toolkit.telemetry.unified" = false;
       "toolkit.telemetry.enabled" = false;
-      "toolkit.telemetry.server" = "data=:,";
+      "toolkit.telemetry.server" = "data:,";
       "toolkit.telemetry.archive.enabled" = false;
       "toolkit.telemetry.newProfilePing.enabled" = false;
       "toolkit.telemetry.shutdownPingSender.enabled" = false;
@@ -158,6 +161,10 @@
       "browser.newtabpage.activity-stream.feeds.telemetry" = false;
       "browser.newtabpage.activity-stream.telemetry" = false;
 
+      /****************************************************************************
+        * SECTION: PESKYFOX                                                        *
+        ****************************************************************************/
+      # MOZILLA UI
       "layout.css.prefers-color-scheme.content-override" = 2;
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       "app.update.suppressPrompts" = true;
@@ -175,6 +182,7 @@
       "browser.display.focus_ring_on_anything" = true;
       "browser.display.focus_ring_style" = 0;
       "browser.display.focus_ring_width" = 0;
+      #"browser.privateWindowSeparation.enabled" = false; #// WINDOWS
       "cookiebanners.service.mode" = 2;
       "cookiebanners.service.mode.privateBrowsing" = 2;
       "browser.translations.enable" = true;
@@ -183,7 +191,7 @@
       "full-screen-api.transition-duration.enter" = "0 0";
       "full-screen-api.transition-duration.leave" = "0 0";
       "full-screen-api.warning.delay" = -1;
-      "full;-screen-api.warning.timeout" = 0;
+      "full-screen-api.warning.timeout" = 0;
 
       # URL BAR
       "browser.urlbar.suggest.engines" = false;
@@ -195,7 +203,7 @@
       "browser.newtabpage.activity-stream.feeds.topsites" = false;
       "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
 
-
+      # POCKET
       "extensions.pocket.enabled" = false;
 
       # DOWNLOADS
@@ -209,10 +217,11 @@
       "pdfjs.sidebarViewOnLoad" = 2;
 
       # TAB BEHAVIOR
-      "browser.tabs.loadBookmarksInTabs" = true;
       "browser.bookmarks.openInTabClosesMenu" = false;
       "browser.menu.showViewImageInfo" = true;
       "findbar.highlightAll" = true;
+
+      "media.ffmpeg.vaapi.enabled" = true;
     };
   };
 }
