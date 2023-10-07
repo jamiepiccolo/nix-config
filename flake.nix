@@ -44,27 +44,28 @@
             ./nixos/configuration.nix
             chaotic.nixosModules.default
             # home-manager.nixosModules.home-manager
+            # hyprland.homeManagerModules.default
             # {
-            #   # home-manager.useGlobalPkgs = true;
-            #   home-manager.useUserPackages = true;
-            #   home-manager.users.agent69 = import ./home-manager/home.nix;
+              # home-manager.useGlobalPkgs = true;
+              # home-manager.useUserPackages = true;
+              # home-manager.users.agent69 = import ./home-manager/home.nix;
             # }
           ];
         };
       };
 
       # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-        "agent69@agent69420" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home-manager/home.nix
-            chaotic.homeManagerModules.default
-            hyprland.homeManagerModules.default
-            {wayland.windowManager.hyprland.enable = true;}
-          ];
-        };
-      };
+      # homeConfigurations = {
+      #   "agent69@agent69420" = home-manager.lib.homeManagerConfiguration {
+      #     pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+      #     extraSpecialArgs = { inherit inputs outputs; };
+      #     modules = [
+      #       ./home-manager/home.nix
+      #       chaotic.homeManagerModules.default
+      #       hyprland.homeManagerModules.default
+      #       {wayland.windowManager.hyprland.enable = true;}
+      #     ];
+      #   };
+      # };
     };
 }

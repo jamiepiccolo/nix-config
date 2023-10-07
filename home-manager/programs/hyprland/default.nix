@@ -121,11 +121,11 @@
         windowrulev2 = size 1280 720,class:(.*)(gamescope-wrapped)
         windowrulev2 = center,class:^(.gamescope-wrapped)$
         windowrulev2 = float,class:^(.gamescope-wrapped)$
-	windowrulev2 = noanim,class:^(cs2)$
-	windowrulev2 = tile,class:^(cs2)$
-	#windowrulev2 = size 1280 720,class:^(cs2)$
-	windowrulev2 = monitor HDMI-A-1,class:^(cs2)$
-	windowrulev2 = noborder,class:^(cs2)$
+	windowrulev2 = noanim,class:^(cs2|steam)$
+	windowrulev2 = tile,class:^(cs2|steam)$
+	#windowrulev2 = size 1280 720,class:^(cs2|steam)$
+	windowrulev2 = monitor HDMI-A-1,class:^(cs2|steam)$
+	windowrulev2 = noborder,class:^(cs2|steam)$
 
         $mainMod = SUPER;
         binde = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+

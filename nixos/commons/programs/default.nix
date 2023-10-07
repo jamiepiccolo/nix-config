@@ -85,12 +85,14 @@
       plugins = with pkgs.obs-studio-plugins; [
 	obs-gstreamer
         obs-vkcapture
+        obs-vaapi
+        obs-pipewire-audio-capture
       ];
     })
     gst_all_1.gstreamer
     gst_all_1.gst-vaapi
     gst_all_1.gst-plugins-base
-    git
+    gitFull
     mpv
     rustup
     rnix-lsp
@@ -101,7 +103,6 @@
     mangohud_git
     waybar
     vscodium
-    vscode
     neovim
     slurp
     grim
@@ -113,9 +114,22 @@
     readline
     vscode-extensions.jnoortheen.nix-ide
     vscode-extensions.usernamehw.errorlens
-    webcord
-    runelite
-    ];
+    zig
+    ripgrep
+    unzip
+    wget
+    go
+    nodejs_20
+    fd
+    flutter
+    cmake
+    fluffychat
+    nheko
+    gnome.gnome-keyring
+    libsecret
+    libsForQt5.falkon
+    microsoft-edge-dev
+];
 
   # programs.hyprland = {
   #   enable = true;

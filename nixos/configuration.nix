@@ -1,4 +1,5 @@
 { inputs
+, outputs
 , lib
 , config
 , pkgs
@@ -10,6 +11,7 @@
     inputs.hardware.nixosModules.common-cpu-amd-pstate
     inputs.hardware.nixosModules.common-gpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
+    inputs.home-manager.nixosModules.home-manager
 
     ./commons/locale.nix
     ./commons/network.nix
@@ -26,6 +28,14 @@
     ];
     config = {
       allowUnfree = true;
+    };
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      agent69 = import ../home-manager/home.nix;
     };
   };
 

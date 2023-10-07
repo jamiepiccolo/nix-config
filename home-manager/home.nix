@@ -5,10 +5,12 @@
 , ...
 }: {
   imports = [
+    inputs.chaotic.homeManagerModules.default
+    inputs.hyprland.homeManagerModules.default
     ./programs
   ];
 
-  nix.package = pkgs.nix;
+  # nix.package = pkgs.nix;
 
   nixpkgs = {
     overlays = [
@@ -30,6 +32,7 @@
 
   programs.home-manager.enable = true;
   programs.git = {
+    package = pkgs.gitFull;
     enable = true;
     userName = "NotAgentBilly";
     userEmail = "82730686+NotAgentBilly@users.noreply.github.com";
