@@ -41,7 +41,7 @@
   chaotic.steam.extraCompatPackages = with pkgs; [
     proton-ge-custom
   ];
-  chaotic.mesa-git.enable = true;
+  #chaotic.mesa-git.enable = true;
 
   programs.gamescope.enable = true;
   # programs.gamescope.package = pkgs.gamescope_git;
