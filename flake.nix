@@ -12,6 +12,7 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
     xdph.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    prince.url = "github:StarLederer/prince-pdf-for-nix";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/master";
@@ -46,9 +47,9 @@
             # home-manager.nixosModules.home-manager
             # hyprland.homeManagerModules.default
             # {
-              # home-manager.useGlobalPkgs = true;
-              # home-manager.useUserPackages = true;
-              # home-manager.users.agent69 = import ./home-manager/home.nix;
+            # home-manager.useGlobalPkgs = true;
+            # home-manager.useUserPackages = true;
+            # home-manager.users.agent69 = import ./home-manager/home.nix;
             # }
           ];
         };

@@ -13,9 +13,9 @@
 
     MOZ_ENABLE_WAYLAND = "1";
     NIXOS_OZONE_WL = "1";
-    RADV_PERFTEST = "gpl";
+    RADV_PERFTEST = "gpl,nggc,sam";
     SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS = "0";
-    MESA_GL_VERSION_OVERRIDE="4.6";
+    MESA_GL_VERSION_OVERRIDE = "4.6";
   };
 
   pam.sessionVariables = {
@@ -30,9 +30,9 @@
 
     MOZ_ENABLE_WAYLAND = "1";
     NIXOS_OZONE_WL = "1";
-    RADV_PERFTEST = "gpl";
+    RADV_PERFTEST = "gpl,nggc,sam";
     SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS = "0";
-    MESA_GL_VERSION_OVERRIDE="4.6";
+    MESA_GL_VERSION_OVERRIDE = "4.6";
   };
   home = {
     sessionVariables = {
@@ -48,9 +48,9 @@
 
       MOZ_ENABLE_WAYLAND = "1";
       NIXOS_OZONE_WL = "1";
-      RADV_PERFTEST = "gpl";
+      RADV_PERFTEST = "gpl,nggc,sam";
       SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS = "0";
-      MESA_GL_VERSION_OVERRIDE="4.6";
+      MESA_GL_VERSION_OVERRIDE = "4.6";
     };
   };
 

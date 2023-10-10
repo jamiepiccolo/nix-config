@@ -20,7 +20,7 @@
       ];
     };
   };
- 
+
   programs.gamemode = {
     enable = true;
     settings = {
@@ -41,7 +41,7 @@
   chaotic.steam.extraCompatPackages = with pkgs; [
     proton-ge-custom
   ];
-  #chaotic.mesa-git.enable = true;
+  chaotic.mesa-git.enable = true;
 
   programs.gamescope.enable = true;
   # programs.gamescope.package = pkgs.gamescope_git;
@@ -57,7 +57,7 @@
     portal = {
       enable = true;
       extraPortals = [
- 	inputs.xdph.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+        inputs.xdph.packages.${pkgs.system}.xdg-desktop-portal-hyprland
         pkgs.libsForQt5.xdg-desktop-portal-kde
       ];
     };
@@ -83,7 +83,7 @@
     playerctl
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
-	obs-gstreamer
+        obs-gstreamer
         obs-vkcapture
         obs-vaapi
         obs-pipewire-audio-capture
@@ -94,12 +94,12 @@
     gst_all_1.gst-plugins-base
     gitFull
     mpv
-    rustup
     rnix-lsp
     home-manager
     foot
     kitty
-    # inputs.hyprland.packages.${pkgs.system}.hyprland
+    inputs.prince.packages.${pkgs.system}.default
+    inputs.hyprland.packages.${pkgs.system}.hyprland
     mangohud_git
     waybar
     vscodium
@@ -122,14 +122,30 @@
     nodejs_20
     fd
     flutter
+    dart
     cmake
     fluffychat
     nheko
     gnome.gnome-keyring
     libsecret
-    libsForQt5.falkon
-    microsoft-edge-dev
-];
+    llvmPackages_16.llvm
+    gcc
+    cargo
+
+    # Neovim Lsp Servers
+    rust-analyzer
+    rustc
+    rustfmt
+    clippy
+    gopls
+    nil
+    nixpkgs-fmt
+    lua-language-server
+    nodePackages.svelte-language-server
+    nodePackages.typescript-language-server
+    nodePackages.vscode-langservers-extracted
+    hyprpaper
+  ];
 
   # programs.hyprland = {
   #   enable = true;
