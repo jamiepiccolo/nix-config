@@ -1,33 +1,16 @@
-{ config, inputs, lib, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  imports = [
-    ./hyprland-environment.nix
-  ];
-
-  #test later systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemdIntegration = true;
     extraConfig = ''
-      monitor = DP-3,1920x1080,-1920x0,1 #,bitdepth,10
-      monitor = HDMI-A-1,1920x1080@240,0x0,1 #,bitdepth,10
-      exec-once = xrandr --output \"HDMI-A-1\" --primary
-      exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      exec-once = dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      exec-once = waybar
-      exec-once = /usr/lib/polkit-kde-authentication-agent-1
-      exec-once = easyeffects --gapplication-service
-      exec-once = sleep 1 && keepassxc
-      exec-once = [workspace 3 silent] sleep 1 && telegram-desktop
-      exec-once = hyprpaper 
       env = XCURSOR_SIZE,24
       env = WLR_RENDERER,vulkan
 
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
       env = QT_QPA_PLATFORMTHEME,qt5ct
-
+      env = WLR_DRM_NO_ATOMIC,1
       env = XDG_CURRENT_DESKTOP,Hyprland
       env = XDG_SESSION_DESKTOP,Hyprland
       env = XDG_SESSION_TYPE,wayland
@@ -38,6 +21,16 @@
 
       env = SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS,0
       env = MESA_GL_VERSION_OVERRIDE,4.6
+
+      monitor = DP-3,1920x1080,-1920x0,1 #,bitdepth,10
+      monitor = HDMI-A-1,1920x1080@240,0x0,1 #,bitdepth,10
+      exec-once = xrandr --output \"HDMI-A-1\" --primary
+      exec-once = waybar
+      exec-once = /usr/lib/polkit-kde-authentication-agent-1
+      exec-once = easyeffects --gapplication-service
+      exec-once = sleep 1 && keepassxc
+      exec-once = [workspace 3 silent] sleep 1 && telegram-desktop
+      exec-once = hyprpaper 
       input {
         kb_layout = us
         follow_mouse = 1
@@ -50,7 +43,7 @@
         accel_profile = flat
       }
       general {
-        allow_tearing = false
+        allow_tearing = true
         gaps_in = 2
         gaps_out = 6
         border_size = 1
@@ -60,9 +53,10 @@
       }
       misc {
         disable_hyprland_logo = true
-        # disable_hypr_chan = true
+        force_default_wallpaper = 0
         vrr = 1
-        #focus_on_activate = true
+        no_direct_scanout = false
+        focus_on_activate = true
       }
       decoration {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
@@ -121,9 +115,9 @@
       windowrulev2 = float,class:^(.gamescope-wrapped)$
       windowrulev2 = noanim,class:^(cs2|steam_app_271590)$
       windowrulev2 = tile,class:^(cs2|steam_app_271590)$
-      #windowrulev2 = size 1280 720,class:^(cs2|steam|steam_app_271590)$
       windowrulev2 = monitor HDMI-A-1,class:^(cs2|steam|steam_app_271590)$
       windowrulev2 = noborder,class:^(cs2|steam_app_271590)$
+      windowrulev2 = immediate,class:^(cs2)$
 
       $mainMod = SUPER;
       binde = ,XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
