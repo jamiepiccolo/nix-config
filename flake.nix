@@ -18,6 +18,8 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-gaming.url = "github:fufexan/nix-gaming";
+
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
@@ -38,6 +40,22 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         agent69420 = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          # > Our main nixos configuration file <
+          system = "x86_64-linux";
+          modules = [
+            ./nixos/configuration.nix
+            chaotic.nixosModules.default
+            # home-manager.nixosModules.home-manager
+            # hyprland.homeManagerModules.default
+            # {
+            # home-manager.useGlobalPkgs = true;
+            # home-manager.useUserPackages = true;
+            # home-manager.users.agent69 = import ./home-manager/home.nix;
+            # }
+          ];
+        };
+        agent42069 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           # > Our main nixos configuration file <
           system = "x86_64-linux";

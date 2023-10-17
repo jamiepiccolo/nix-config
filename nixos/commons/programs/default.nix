@@ -26,7 +26,6 @@
     settings = {
       general = {
         desiredgov = "performance";
-        defaultgov = "performance";
       };
       gpu = {
         apply_gpu_optimisations = "accept-responsibility";
@@ -57,7 +56,6 @@
     portal = {
       enable = true;
       extraPortals = [
-        inputs.xdph.packages.${pkgs.system}.xdg-desktop-portal-hyprland
         pkgs.libsForQt5.xdg-desktop-portal-kde
       ];
     };
@@ -99,7 +97,6 @@
     foot
     kitty
     inputs.prince.packages.${pkgs.system}.default
-    inputs.hyprland.packages.${pkgs.system}.hyprland
     mangohud_git
     waybar
     vscodium
@@ -147,8 +144,7 @@
     hyprpaper
   ];
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  # };
+  programs.hyprland = {
+    enable = true;
+  };
 }

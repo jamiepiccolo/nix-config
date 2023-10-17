@@ -15,7 +15,10 @@
     options iwlwifi power_save=0
     options iwlmvm power_scheme=1
   '';
-  boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
+  boot.kernelParams = [
+    "amdgpu.ppfeaturemask=0xffffffff"
+    "amd_pstate=active"
+  ];
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/708dae67-60e6-469b-a443-2239de0b4753";

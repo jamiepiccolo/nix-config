@@ -24,6 +24,15 @@
   home = {
     username = "agent69";
     homeDirectory = "/home/agent69";
+    sessionVariables = {
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+      QT_QPA_PLATFORM = "wayland";
+      XDG_SESSION_TYPE = "wayland";
+      XDG_SESSION_DESKTOP = "Hyprland";
+      XDG_CURRENT_DESKTOP = "Hyprland";
+      MESA_GL_VERSION_OVERRIDE = "4.6";
+      RADV_PERFTEST = "gpl,nggc,sam";
+    };
   };
 
   # Add stuff for your user as you see fit:

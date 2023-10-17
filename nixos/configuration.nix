@@ -12,7 +12,8 @@
     inputs.hardware.nixosModules.common-gpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
     inputs.home-manager.nixosModules.home-manager
-
+    inputs.nix-gaming.nixosModules.pipewireLowLatency
+    inputs.hyprland.nixosModules.default
     ./commons/locale.nix
     ./commons/network.nix
     ./commons/fonts.nix
@@ -68,7 +69,8 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  #boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   users.users = {
     agent69 = {
       isNormalUser = true;
@@ -99,8 +101,9 @@
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  
+
   boot.kernel.sysctl = {
+    "kernel.split_lock_mitigate" = 0;
     "net.core.default_qdisc" = "fq_codel";
     "net.ipv4.tcp_ecn" = 1;
     "net.ipv4.tcp_sack" = 1;
