@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   sound.enable = false;
   security.rtkit.enable = true;
@@ -8,8 +7,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
-    lowLatency = {
-      enable = true;
-    };
+    lowLatency.enable = true;
   };
 }

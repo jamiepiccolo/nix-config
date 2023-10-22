@@ -68,7 +68,7 @@
     telegram-desktop
     tofi
     libsForQt5.dolphin
-    libsForQt5.polkit-kde-agent
+    # libsForQt5.polkit-kde-agent
     gnome.nautilus
     udisks
     xorg.xeyes
@@ -142,6 +142,8 @@
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
     hyprpaper
+    logseq
+    cloudflare-warp
   ];
 
   programs.hyprland = {

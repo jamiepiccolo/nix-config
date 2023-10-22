@@ -69,8 +69,8 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  #boot.kernelPackages = pkgs.linuxPackages_cachyos;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_stable;
   users.users = {
     agent69 = {
       isNormalUser = true;
@@ -98,16 +98,16 @@
     PATH = [
       "${XDG_BIN_HOME}"
     ];
+    NIXOS_OZONE_WL = "1";
   };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   boot.kernel.sysctl = {
     "kernel.split_lock_mitigate" = 0;
-    "net.core.default_qdisc" = "fq_codel";
-    "net.ipv4.tcp_ecn" = 1;
-    "net.ipv4.tcp_sack" = 1;
-    "net.ipv4.tcp_dsack" = 1;
+    # "net.core.default_qdisc" = "fq_codel";
+    # "net.ipv4.tcp_ecn" = 1;
+    # "net.ipv4.tcp_sack" = 1;
+    # "net.ipv4.tcp_dsack" = 1;
   };
 
   services.udisks2.enable = true;

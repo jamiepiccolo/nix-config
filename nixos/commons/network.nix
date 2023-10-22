@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   networking.wireless.iwd.enable = true;
   networking.wireless.iwd.settings = {
@@ -14,8 +15,21 @@
 
   hardware.bluetooth = {
     enable = true;
+    package = pkgs.bluez5-experimental;
     powerOnBoot = true;
+    settings = {
+      General = {
+        Class = "0x000100";
+        ControllerMode = "bredr";
+        FastConnectable = true;
+        JustWorksRepairing = "always";
+        Privacy = "device";
+        Experimental = true;
+      };
+    };
   };
+
+  systemd.user.services.telephony_client.enable = false;
 
   # wayvnc
   networking.firewall.allowedTCPPorts = [ 5900 ];

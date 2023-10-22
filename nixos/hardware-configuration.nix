@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ lib, pkgs, modulesPath, ... }:
 
 {
   imports =
@@ -17,7 +17,6 @@
   '';
   boot.kernelParams = [
     "amdgpu.ppfeaturemask=0xffffffff"
-    "amd_pstate=active"
   ];
   fileSystems."/" =
     {

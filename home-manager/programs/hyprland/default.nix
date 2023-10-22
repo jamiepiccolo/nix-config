@@ -1,11 +1,10 @@
-{ inputs, pkgs, ... }:
-
 {
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
     extraConfig = ''
       env = XCURSOR_SIZE,24
+      # doesn't do anything on hyprland
       env = WLR_RENDERER,vulkan
 
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
@@ -26,14 +25,15 @@
       monitor = HDMI-A-1,1920x1080@240,0x0,1 #,bitdepth,10
       exec-once = xrandr --output \"HDMI-A-1\" --primary
       exec-once = waybar
-      exec-once = /usr/lib/polkit-kde-authentication-agent-1
+      exec-once = playerctld daemon
+      # exec-once = /usr/lib/polkit-kde-authentication-agent-1
       exec-once = easyeffects --gapplication-service
       exec-once = sleep 1 && keepassxc
       exec-once = [workspace 3 silent] sleep 1 && telegram-desktop
       exec-once = hyprpaper 
       input {
         kb_layout = us
-        follow_mouse = 1
+        # follow_mouse = 0
 
         touchpad {
           natural_scroll = no
